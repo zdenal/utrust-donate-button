@@ -9,9 +9,10 @@ export class UtrustDonate implements ComponentInterface {
   private _amounts: Array<number>;
   @Prop() amounts: string = "[]";
   @Prop() donateId: string;
-  @Prop() currency: string;
+  @Prop() currency: string; // only presentation purpose
 
   @State() selectedAmount: number;
+  @State() loading: boolean;
 
   @Watch('amounts')
   parseAmountsProp(newAmounts: string) {
@@ -29,7 +30,8 @@ export class UtrustDonate implements ComponentInterface {
   async handleSubmit(e) {
     e.preventDefault()
     console.log(this.selectedAmount);
-    // send data to our backend
+
+    this.loading = true;
 
     const response = await fetch("https://zdenal.builtwithdark.com/api/donate", {
       method: "POST",
@@ -46,6 +48,7 @@ export class UtrustDonate implements ComponentInterface {
 
     if (!response.ok) {
       alert("Make Donate Error")
+      this.loading = false;
       return
     }
 
@@ -97,7 +100,7 @@ export class UtrustDonate implements ComponentInterface {
         {this.renderChoices()}
         {this.renderCustom()}
         <div>
-          <input disabled={!this.selectedAmount} type="submit" value={this.buttonTitle()} />
+          <input disabled={!this.selectedAmount || this.loading} type="submit" value={this.buttonTitle()} />
         </div>
       </form>
     );
