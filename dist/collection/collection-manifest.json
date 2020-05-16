@@ -1,0 +1,12 @@
+{
+  "entries": [
+    "./components/utrust-donate/utrust-donate.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "1.12.2",
+    "typescriptVersion": "3.8.3"
+  },
+  "collections": [],
+  "bundles": []
+}

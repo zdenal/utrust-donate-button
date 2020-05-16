@@ -1,0 +1,1 @@
+System.register(["./p-8abbaef4.system.js"],(function(){"use strict";var t,e;return{setters:[function(n){t=n.p;e=n.b}],execute:function(){t().then((function(t){return e([["p-5963ef34.system",[[1,"utrust-donate",{amounts:[1],donateId:[1,"donate-id"],currency:[1],selectedAmount:[32],loading:[32]}]]]],t)}))}}}));
