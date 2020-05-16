@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-45c99633.js');
+const index = require('./index-9f8dc43d.js');
 
 const utrustDonateCss = ":host{display:block}";
 
@@ -10,6 +10,7 @@ const UtrustDonate = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
         this.amounts = "[]";
+        this.min = 1;
     }
     parseAmountsProp(newAmounts) {
         if (newAmounts)
@@ -46,7 +47,7 @@ const UtrustDonate = class {
         window.location.href = data.redirect_url;
     }
     handleChange(event) {
-        this.selectedAmount = event.target.value;
+        this.selectedAmount = event.target.value < this.min ? this.min : event.target.value;
     }
     renderChoices() {
         if (this._amounts.length > 1) {
@@ -55,7 +56,7 @@ const UtrustDonate = class {
     }
     renderCustom() {
         if (this._amounts.length == 0) {
-            return (index.h("label", null, "Amount:", index.h("input", { type: "number", value: this.selectedAmount, onInput: this.handleChange.bind(this) })));
+            return (index.h("label", null, "Amount:", index.h("input", { type: "number", min: this.min, value: this.selectedAmount, onInput: this.handleChange.bind(this) })));
         }
     }
     buttonTitle() {

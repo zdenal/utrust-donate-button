@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './index-5ba7c38d.js';
+import { r as registerInstance, h } from './index-e4b4a083.js';
 
 const utrustDonateCss = ":host{display:block}";
 
@@ -6,6 +6,7 @@ const UtrustDonate = class {
     constructor(hostRef) {
         registerInstance(this, hostRef);
         this.amounts = "[]";
+        this.min = 1;
     }
     parseAmountsProp(newAmounts) {
         if (newAmounts)
@@ -42,7 +43,7 @@ const UtrustDonate = class {
         window.location.href = data.redirect_url;
     }
     handleChange(event) {
-        this.selectedAmount = event.target.value;
+        this.selectedAmount = event.target.value < this.min ? this.min : event.target.value;
     }
     renderChoices() {
         if (this._amounts.length > 1) {
@@ -51,7 +52,7 @@ const UtrustDonate = class {
     }
     renderCustom() {
         if (this._amounts.length == 0) {
-            return (h("label", null, "Amount:", h("input", { type: "number", value: this.selectedAmount, onInput: this.handleChange.bind(this) })));
+            return (h("label", null, "Amount:", h("input", { type: "number", min: this.min, value: this.selectedAmount, onInput: this.handleChange.bind(this) })));
         }
     }
     buttonTitle() {

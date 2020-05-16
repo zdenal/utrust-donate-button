@@ -9,6 +9,7 @@ export class UtrustDonate implements ComponentInterface {
   private _amounts: Array<number>;
   @Prop() amounts: string = "[]";
   @Prop() donateId: string;
+  @Prop() min: number = 1;
   @Prop() currency: string; // only presentation purpose
 
   @State() selectedAmount: number;
@@ -57,7 +58,7 @@ export class UtrustDonate implements ComponentInterface {
   }
 
   handleChange(event) {
-    this.selectedAmount = event.target.value;
+    this.selectedAmount = event.target.value < this.min ? this.min : event.target.value;
   }
 
   renderChoices() {
@@ -80,7 +81,7 @@ export class UtrustDonate implements ComponentInterface {
       return (
         <label>
           Amount:
-          <input type="number" value={this.selectedAmount} onInput={this.handleChange.bind(this)} />
+          <input type="number" min={this.min} value={this.selectedAmount} onInput={this.handleChange.bind(this)} />
         </label>
       )
     }

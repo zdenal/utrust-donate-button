@@ -10,6 +10,7 @@ export namespace Components {
         "amounts": string;
         "currency": string;
         "donateId": string;
+        "min": number;
     }
 }
 declare global {
@@ -28,6 +29,7 @@ declare namespace LocalJSX {
         "amounts"?: string;
         "currency"?: string;
         "donateId"?: string;
+        "min"?: number;
     }
     interface IntrinsicElements {
         "utrust-donate": UtrustDonate;

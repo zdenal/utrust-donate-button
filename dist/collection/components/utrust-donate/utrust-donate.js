@@ -2,6 +2,7 @@ import { Component, State, Prop, Watch, h } from '@stencil/core';
 export class UtrustDonate {
     constructor() {
         this.amounts = "[]";
+        this.min = 1;
     }
     parseAmountsProp(newAmounts) {
         if (newAmounts)
@@ -38,7 +39,7 @@ export class UtrustDonate {
         window.location.href = data.redirect_url;
     }
     handleChange(event) {
-        this.selectedAmount = event.target.value;
+        this.selectedAmount = event.target.value < this.min ? this.min : event.target.value;
     }
     renderChoices() {
         if (this._amounts.length > 1) {
@@ -51,7 +52,7 @@ export class UtrustDonate {
         if (this._amounts.length == 0) {
             return (h("label", null,
                 "Amount:",
-                h("input", { type: "number", value: this.selectedAmount, onInput: this.handleChange.bind(this) })));
+                h("input", { type: "number", min: this.min, value: this.selectedAmount, onInput: this.handleChange.bind(this) })));
         }
     }
     buttonTitle() {
@@ -110,6 +111,24 @@ export class UtrustDonate {
             },
             "attribute": "donate-id",
             "reflect": false
+        },
+        "min": {
+            "type": "number",
+            "mutable": false,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "min",
+            "reflect": false,
+            "defaultValue": "1"
         },
         "currency": {
             "type": "string",

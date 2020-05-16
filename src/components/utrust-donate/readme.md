@@ -12,6 +12,7 @@
 | `amounts`  | `amounts`   |             | `string` | `"[]"`      |
 | `currency` | `currency`  |             | `string` | `undefined` |
 | `donateId` | `donate-id` |             | `string` | `undefined` |
+| `min`      | `min`       |             | `number` | `1`         |
 
 
 ----------------------------------------------

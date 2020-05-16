@@ -1,1 +1,1 @@
-import{p as t,b as e}from"./p-45e11549.js";t().then(t=>e([["p-b1522188",[[1,"utrust-donate",{amounts:[1],donateId:[1,"donate-id"],currency:[1],selectedAmount:[32],loading:[32]}]]]],t));
+import{p as t,b as a}from"./p-acf5407e.js";t().then(t=>a([["p-f337b44f",[[1,"utrust-donate",{amounts:[1],donateId:[1,"donate-id"],min:[2],currency:[1],selectedAmount:[32],loading:[32]}]]]],t));

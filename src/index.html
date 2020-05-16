@@ -7,13 +7,17 @@
 
   <script type="module" src="/build/utrust-donut-button.esm.js"></script>
   <script nomodule src="/build/utrust-donut-button.js"></script>
-
+  <!--<script nomodule src="https://cdn.rawgit.com/zdenal/utrust-donate-button/master/dist/utrust-donut-button.js"></script>-->
 </head>
 <body>
 
-  <utrust-donate amounts="[1,2]" currency="usd" donate-id="hugo"/>
-  <!--<utrust-donate amounts="[1]" donate-id="hugo" currency="usd" />-->
-  <!--<utrust-donate currency="usd" donate-id="hugo"/>-->
+    <utrust-donate amounts="[10,20]" currency="usd" donate-id="hugo"></utrust-donate>
+    <hr />
+    <br />
+    <utrust-donate amounts="[100]" donate-id="hugo" currency="usd"></utrust-donate>
+    <hr />
+    <br />
+    <utrust-donate currency="usd" donate-id="hugo"></utrust-donate>
 
 </body>
 </html>

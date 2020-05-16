@@ -3,6 +3,7 @@ export declare class UtrustDonate implements ComponentInterface {
     private _amounts;
     amounts: string;
     donateId: string;
+    min: number;
     currency: string;
     selectedAmount: number;
     loading: boolean;

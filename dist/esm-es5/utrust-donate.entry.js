@@ -34,12 +34,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { r as registerInstance, h } from './index-5ba7c38d.js';
+import { r as registerInstance, h } from './index-e4b4a083.js';
 var utrustDonateCss = ":host{display:block}";
 var UtrustDonate = /** @class */ (function () {
     function class_1(hostRef) {
         registerInstance(this, hostRef);
         this.amounts = "[]";
+        this.min = 1;
     }
     class_1.prototype.parseAmountsProp = function (newAmounts) {
         if (newAmounts)
@@ -89,7 +90,7 @@ var UtrustDonate = /** @class */ (function () {
         });
     };
     class_1.prototype.handleChange = function (event) {
-        this.selectedAmount = event.target.value;
+        this.selectedAmount = event.target.value < this.min ? this.min : event.target.value;
     };
     class_1.prototype.renderChoices = function () {
         var _this = this;
@@ -99,7 +100,7 @@ var UtrustDonate = /** @class */ (function () {
     };
     class_1.prototype.renderCustom = function () {
         if (this._amounts.length == 0) {
-            return (h("label", null, "Amount:", h("input", { type: "number", value: this.selectedAmount, onInput: this.handleChange.bind(this) })));
+            return (h("label", null, "Amount:", h("input", { type: "number", min: this.min, value: this.selectedAmount, onInput: this.handleChange.bind(this) })));
         }
     };
     class_1.prototype.buttonTitle = function () {

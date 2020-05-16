@@ -655,6 +655,10 @@ const addHydratedFlag = (elm) => ( elm.classList.add('hydrated') );
 const parsePropertyValue = (propValue, propType) => {
     // ensure this value is of the correct prop type
     if (propValue != null && !isComplexType(propValue)) {
+        if ( propType & 2 /* Number */) {
+            // force it to be a number
+            return parseFloat(propValue);
+        }
         if ( propType & 1 /* String */) {
             // could have been passed as a number or boolean
             // but we still want it as a string
