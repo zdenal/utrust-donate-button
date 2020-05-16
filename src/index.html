@@ -11,11 +11,32 @@
 </head>
 <body>
 
+    <h3>Button with specific amount options</h3>
+    <textarea rows="2" cols="130">
+      <script nomodule src="https://cdn.rawgit.com/zdenal/utrust-donate-button/master/dist/utrust-donut-button.js"></script>
+      <utrust-donate amounts="[10,20]" currency="usd" donate-id="hugo"></utrust-donate>
+    </textarea>
+    <br />
+    <br />
     <utrust-donate amounts="[10,20]" currency="usd" donate-id="hugo"></utrust-donate>
     <hr />
     <br />
+    <h3>Button with specific one amount</h3>
+    <textarea rows="2" cols="130">
+      <script nomodule src="https://cdn.rawgit.com/zdenal/utrust-donate-button/master/dist/utrust-donut-button.js"></script>
+      <utrust-donate amounts="[100]" donate-id="hugo" currency="usd"></utrust-donate>
+    </textarea>
+    <br />
+    <br />
     <utrust-donate amounts="[100]" donate-id="hugo" currency="usd"></utrust-donate>
     <hr />
+    <br />
+    <h3>Button with custom amount field</h3>
+    <textarea rows="2" cols="130">
+      <script nomodule src="https://cdn.rawgit.com/zdenal/utrust-donate-button/master/dist/utrust-donut-button.js"></script>
+      <utrust-donate currency="usd" donate-id="hugo"></utrust-donate>
+    </textarea>
+    <br />
     <br />
     <utrust-donate currency="usd" donate-id="hugo"></utrust-donate>
 
